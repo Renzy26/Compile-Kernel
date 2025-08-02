@@ -1,0 +1,21 @@
+name: Compile Kernel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Building Kernel.
+         run: |
+             git clone --depth=1 https://github.com/Renzy16/kernel_xiaomi_ginkgo.git -b pelt/10-ksu ginkgo
+             cd ginkgo
+             chmod 777 build.sh
+             ./build.sh
+
+       - name: Uploading ZIP.
+         run: |
+             cd kernel
+             curl -T *.zip -u :196a9c40-36c6-46f4-8a68-fcd2473dedb2 https://pixeldrain.com/api/file/ && echo
