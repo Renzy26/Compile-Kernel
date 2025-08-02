@@ -10,7 +10,7 @@ jobs:
     steps:
        - name: Building Kernel.
          run: |
-             git clone --depth=1 https://github.com/Renzy16/kernel_xiaomi_ginkgo.git -b pelt/10-ksu ginkgo
+             git clone --depth=1 https://github.com/Renzy16/kernel_xiaomi_ginkgo.git -b bak ginkgo
              cd ginkgo
              chmod 777 build.sh
              ./build.sh
