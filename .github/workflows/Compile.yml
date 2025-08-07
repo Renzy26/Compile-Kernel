@@ -7,10 +7,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+      steps : 
+    - name: Setup
+         run: |
+              sudo apt-get update
+sudo apt-get install -y bc cpio ccache gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu build-essential flex bison libelf-dev libssl-dev python3 lld curl git
+
     steps:
        - name: Building Kernel.
          run: |
-             git clone --depth=1 https://github.com/Renzy16/kernel_xiaomi_ginkgo.git -b pelt/ksu-new ginkgo
+             git clone --depth=1 https://github.com/Renzy16/kernel_xiaomi_ginkgo.git -b v1.2-ksu ginkgo
              cd ginkgo
              chmod 777 build.sh
              ./build.sh --ksu
